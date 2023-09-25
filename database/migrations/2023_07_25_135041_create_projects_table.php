@@ -17,9 +17,13 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string("projectName");
             $table->string("projectDeskripsi");
-            $table->string("projectImage");
+            $table->string("projectImageCover");
             $table->unsignedBigInteger("kategori_id");
             $table->foreign("kategori_id")->references("id")->on("kategoris");
+            $table->string("projectStatus");
+            $table->date("projectStart");
+            $table->date("projectEnd");
+            $table->string("projectActivate");
             $table->timestamps();
         });
     }

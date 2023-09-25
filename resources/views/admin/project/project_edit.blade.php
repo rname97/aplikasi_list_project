@@ -16,7 +16,7 @@
                              {{ Session::get('message') }}
                         </div>
                     @endif
-                    <form method="POST" action="{{url('/updateProject')}}/{{ $project->id }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{url('/editProject')}}/{{ $project->id }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Project</label>
@@ -51,7 +51,7 @@
                             </div>
                             @endif
                         </div>
-                        
+
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Start Project</label>
                             <div class="col-sm-10">
@@ -75,15 +75,30 @@
                             @endif
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Image Project</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Image Cover Project </label>
                             <div class="col-sm-10">
-                                <input type="file" name="projectImage" class="form-control" id="basic-default-name" value="{{ $project->projectImage }}">
+                                <input type="file" name="projectImageCover" class="form-control" id="basic-default-name" value="{{ $project->projectImageCover }}">
                             </div>
-                            @if($errors->has('projectImage'))
+                            @if($errors->has('projectImageCover'))
                             <div class="text-danger mt-2">
-                                *{{ $errors->first('projectImage') }}
+                                *{{ $errors->first('projectImageCover') }}
                             </div>
                             @endif
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Current Image</label>
+                            <div class="col-sm-10">
+                            @if ($project->projectImageCover != '')
+                                <input type="hidden" name="projectImageCoverCurent" class="form-control" id="basic-default-name" value="{{ $project->projectImageCover }}">
+                                <img src="{{url('public/Image/'.$project->projectImageCover)}}" alt="" width="100" height="100">
+                            @else
+                                <img src="{{url('public/Image/img_not_found.jpg')}}" alt="">
+                            @endif
+                        </div>
+
+
+
+
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Kategori</label>
@@ -98,6 +113,22 @@
                             @if($errors->has('kategori_id'))
                             <div class="text-danger mt-2">
                                 *{{ $errors->first('kategori_id') }}
+                            </div>
+                            @endif
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Activate Publish</label>
+                            <div class="col-sm-10">
+                                <select id="defaultSelect" class="form-control" name="projectActivate">
+                                    <option>Default select</option>
+                                    <option value="activate" {{ $project->projectActivate == "activate" ? "selected" : '' }}>Activate</option>
+                                    <option value="noactivate" {{ $project->projectActivate == "noactivate" ? "selected" : '' }}>No Activate</option>
+                                </select>
+                            </div>
+                            @if($errors->has('projectActivate'))
+                            <div class="text-danger mt-2">
+                                *{{ $errors->first('projectActivate') }}
                             </div>
                             @endif
                         </div>

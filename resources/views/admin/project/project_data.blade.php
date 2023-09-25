@@ -7,9 +7,9 @@
             <div class="card">
                 <div class="card-header d-flex">
                     <h5 class="flex-grow-1 ">Data Project</h5>
-                    <a href="{{ url('/project_add') }}" class="btn btn-sm btn-primary">Tambah</a>
+                    <a href="{{ url('/project_form_add') }}" class="btn btn-sm btn-primary">Tambah</a>
                 </div>
-                
+
                 <div class="table-responsive text-nowrap">
                     <table class="table">
                         <thead class="table-light">
@@ -21,7 +21,7 @@
                                 <th>End</th>
                                 <th>Foto Project</th>
                                 <th>Kategori</th>
-                                
+
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -33,16 +33,17 @@
                                     <td>{{ $rowData->projectStatus }}</td>
                                     <td>{{ $rowData->projectStart }}</td>
                                     <td>{{ $rowData->projectEnd }}</td>
-                                    <td><img style="height: 50px;width: 80px;"  src="{{url('public/Image/'.$rowData->projectImage)}}"></td>
+                                    <td><img style="height: 50px;width: 80px;"  src="{{url('public/Image/'.$rowData->projectImageCover)}}"></td>
                                     @foreach ($kategori as $rowKategori)
-                                    @if($rowData->kategori_id == $rowKategori->id )
-                                    <td>{{ $rowKategori->kategoriName }}</td>
-                                    @endif
+                                        @if($rowData->kategori_id == $rowKategori->id )
+                                            <td>{{ $rowKategori->kategoriName }}</td>
+                                        @endif
                                     @endforeach
                                     <td style="text-align: right;">
                                         <div>
-                                            <a href="{{ url('/kategori_edit/'.$rowData->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="{{ url('/kategori_delete/'.$rowData->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                            <a href="{{ url('/project_detail/'.$rowData->id) }}" class="btn btn-sm btn-primary">Detail</a>
+                                            <a href="{{ url('/project_form_edit/'.$rowData->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                            <a href="{{ url('/deleteProject/'.$rowData->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -55,3 +56,5 @@
     </div>
 </div>
 @endsection
+
+

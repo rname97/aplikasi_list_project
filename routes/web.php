@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,11 +17,11 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [UserDashboardController::class, 'show']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/kategori', [KategoriController::class, 'show']);
@@ -30,10 +32,24 @@ Route::post('/updateKategori/{id}', [KategoriController::class, 'editKategori'])
 Route::get('/kategori_delete/{id}', [KategoriController::class, 'deleteKategori']);
 
 
+Route::get('/skill', [SkillController::class, 'show']);
+Route::get('/skill_add', [SkillController::class, 'viewAddSkill']);
+Route::post('/addSkill', [SkillController::class, 'addSkill'])->name('addSkill');
+Route::get('/skill_edit/{id}', [SkillController::class, 'viewEditSkill']);
+Route::post('/updateSkill/{id}', [SkillController::class, 'editSkill']);
+Route::get('/skill_delete/{id}', [SkillController::class, 'deleteSkill']);
+
+
 Route::get('/project', [ProjectController::class, 'show']);
-Route::get('/project_add', [ProjectController::class, 'viewAddProject']);
+Route::get('/project_form_add', [ProjectController::class, 'viewAddProject']);
 Route::post('/addProject', [ProjectController::class, 'addProject']);
-Route::get('/kategori_edit/{id}', [ProjectController::class, 'viewEditProject']);
-Route::post('/updateProject/{id}', [ProjectController::class, 'editProject']);
-Route::get('/kategori_delete/{id}', [ProjectController::class, 'deleteProject']);
+Route::get('/project_form_edit/{id}', [ProjectController::class, 'viewEditProject']);
+Route::post('/editProject/{id}', [ProjectController::class, 'editProject']);
+Route::get('/deleteProject/{id}', [ProjectController::class, 'deleteProject']);
+
+
+Route::get('/project_detail/{id}', [ProjectController::class, 'viewDetailProject']);
+
+Route::post('projects_media', [ProjectController::class, 'storeMedia'])->name('projects.storeMedia');
+Route::post('projects/store', [ProjectController::class, 'store'])->name('projects.store');
 

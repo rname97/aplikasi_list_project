@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Kategori;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-use Session;
 
 class KategoriController extends Controller
 {
-    
+
     public function show(){
         $kategori = Kategori::all();
         // echo json_encode($kategori);
@@ -44,13 +44,13 @@ class KategoriController extends Controller
         return view('admin.kategori.kategori_edit', ['rowKategori' => $rowKategori]);
     }
 
-    
+
 
     public function editKategori(Request $request, $id){
         $kategori = Kategori::find($id);
         $kategori->kategoriName    = $request->kategoriName;
         $kategori->save();
-    
+
         return redirect('/kategori');
     }
 

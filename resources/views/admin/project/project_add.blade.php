@@ -16,7 +16,7 @@
                              {{ Session::get('message') }}
                         </div>
                     @endif
-                    <form method="POST" action="{{url('/addProject')}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('/addProject') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Project</label>
@@ -73,25 +73,15 @@
                             </div>
                             @endif
                         </div>
+
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">List Task</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Image Cover Project</label>
                             <div class="col-sm-10">
-                                <input type="text" name="projectEnd" class="form-control" id="basic-default-name" placeholder="John Doe">
+                                <input type="file" name="projectImageCover" class="form-control" id="basic-default-name">
                             </div>
-                            @if($errors->has('projectEnd'))
+                            @if($errors->has('projectImageCover'))
                             <div class="text-danger mt-2">
-                                *{{ $errors->first('projectEnd') }}
-                            </div>
-                            @endif
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Image Project</label>
-                            <div class="col-sm-10">
-                                <input type="file" name="projectImage" class="form-control" id="basic-default-name">
-                            </div>
-                            @if($errors->has('projectImage'))
-                            <div class="text-danger mt-2">
-                                *{{ $errors->first('projectImage') }}
+                                *{{ $errors->first('projectImageCover') }}
                             </div>
                             @endif
                         </div>
@@ -111,6 +101,23 @@
                             </div>
                             @endif
                         </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Activate Publish</label>
+                            <div class="col-sm-10">
+                                <select id="defaultSelect" class="form-control" name="projectActivate">
+                                    <option>Default select</option>
+                                    <option value="activate">Activate</option>
+                                    <option value="noactivate">No Activate</option>
+                                </select>
+                            </div>
+                            @if($errors->has('projectActivate'))
+                            <div class="text-danger mt-2">
+                                *{{ $errors->first('projectActivate') }}
+                            </div>
+                            @endif
+                        </div>
+
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Save</button>
