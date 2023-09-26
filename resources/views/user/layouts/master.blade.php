@@ -24,7 +24,7 @@
     @include('user.partials.header')
   </head>
 
-  <body>
+  <body style="background-color: #0F172A">
 
 
             @include('user.partials.navbar')

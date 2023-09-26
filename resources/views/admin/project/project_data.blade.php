@@ -7,7 +7,12 @@
             <div class="card">
                 <div class="card-header d-flex">
                     <h5 class="flex-grow-1 ">Data Project</h5>
-                    <a href="{{ url('/project_form_add') }}" class="btn btn-sm btn-primary">Tambah</a>
+                    <div>
+                        <a href="{{ url('/project_form_add') }}" class="btn btn-sm btn-primary"><i class='bx bxs-plus-square'></i>Tambah</a>
+                        {{-- <i class='bx bxs-book-add' ></i> --}}
+
+                    </div>
+
                 </div>
 
                 <div class="table-responsive text-nowrap">
@@ -42,8 +47,8 @@
                                     <td style="text-align: right;">
                                         <div>
                                             <a href="{{ url('/project_detail/'.$rowData->id) }}" class="btn btn-sm btn-primary">Detail</a>
-                                            <a href="{{ url('/project_form_edit/'.$rowData->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="{{ url('/deleteProject/'.$rowData->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                            <a href="{{ url('/project_form_edit/'.$rowData->id) }}" class="btn btn-sm btn-primary"><i class='bx bxs-edit' ></i>Edit</a>
+                                            <a href="{{ url('/deleteProject/'.$rowData->id) }}" class="btn btn-sm btn-danger"><i class='bx bxs-trash-alt' ></i>Delete</a>
                                         </div>
                                     </td>
                                 </tr>
