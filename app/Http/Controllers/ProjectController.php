@@ -121,36 +121,15 @@ class ProjectController extends Controller
     }
 
 
-    public function viewDetailProject($id){
-        // $kategori = Kategori::all();
+    public function viewImageListProject($id){
         $project = Project::find($id);
         $projectImage = ProjectImage::where('project_id', $id)->get();
-
-        $data = ['id' => $id, 'project' => $project, 'projectImage'=>$projectImage];
-        // dd($data);
-        // die();
-        return view('admin.project.project_detail', $data);
+        $data = ['id' => $id, 'project' => $project, 'dataProjectImage'=>$projectImage];
+        return view('admin.project.project_image_data', $data);
     }
 
 
-    public function storeMedia(Request $request){
-        $path = storage_path('tmp/uploads');
-
-        if (!file_exists($path)) {
-            mkdir($path, 0777, true);
-        }
-
-        $file = $request->file('file');
-
-        $name = uniqid() . '_' . trim($file->getClientOriginalName());
-
-        $file->move($path, $name);
-
-        return response()->json([
-            'name'          => $name,
-            'original_name' => $file->getClientOriginalName(),
-        ]);
-    }
+    
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
@@ -158,12 +137,22 @@ class ProjectController extends Controller
             'projectImage.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        foreach($request->projectImage as $rowImage){
+        $zx = array();
+        foreach ($request->projectImage as $imagefile) {
+            
             $project = new ProjectImage();
-            $project->project_id=$request->project_id;
-            $project->projectImage=$rowImage;
+            $image= $imagefile;
+            $extension= $imagefile->getClientOriginalExtension();
+            $string = rand(2,50);
+            $filename = $string . time().'.'.$extension;
+            $path = $image->move('public/Image/', $filename);
+            $project->projectImage = $filename;
+            $project->project_id = $request->project_id;
             $project->save();
-        }
+          }
+          
+
+
         Session::flash('alert-class', 'alert-success');
         Session::flash('message','Record inserted successfully.');
         return redirect('/project');

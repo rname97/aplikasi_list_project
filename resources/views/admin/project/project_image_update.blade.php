@@ -16,14 +16,8 @@
                              {{ Session::get('message') }}
                         </div>
                     @endif
-
-
-
                     <form  method="POST"  action="{{ route("projects.store") }}" enctype="multipart/form-data">
                         @csrf
-
-
-
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">ID Project</label>
                             <div class="col-sm-10">
@@ -40,15 +34,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Project</label>
                             <div class="col-sm-10">
-
-                                <div class="card" style="width: 10rem;">
-                                    <div class="card-body">
-                                        <button> <i class='bx bx-plus'></i></button>
-
-                                        <input type="file" name="projectImageCover" class="form-control bx bx-plus" id="basic-default-name">
-                                    </div>
-                                  </div>
-
+                                <input type="file" name="projectImage[]" class="form-control" id="basic-default-name" multiple>
                             </div>
                             @if($errors->has('projectName'))
                             <div class="text-danger mt-2">

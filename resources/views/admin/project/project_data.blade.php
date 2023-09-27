@@ -24,9 +24,8 @@
                                 <th>Status</th>
                                 <th>Start</th>
                                 <th>End</th>
-                                <th>Foto Project</th>
+                                <th>Cover Project</th>
                                 <th>Kategori</th>
-
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -46,7 +45,7 @@
                                     @endforeach
                                     <td style="text-align: right;">
                                         <div>
-                                            <a href="{{ url('/project_detail/'.$rowData->id) }}" class="btn btn-sm btn-primary">Detail</a>
+                                            <a href="{{ url('/project_image_data/'.$rowData->id) }}" class="btn btn-sm btn-primary">List Image</a>
                                             <a href="{{ url('/project_form_edit/'.$rowData->id) }}" class="btn btn-sm btn-primary"><i class='bx bxs-edit' ></i>Edit</a>
                                             <a href="{{ url('/deleteProject/'.$rowData->id) }}" class="btn btn-sm btn-danger"><i class='bx bxs-trash-alt' ></i>Delete</a>
                                         </div>

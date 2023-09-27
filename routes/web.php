@@ -48,7 +48,7 @@ Route::post('/editProject/{id}', [ProjectController::class, 'editProject']);
 Route::get('/deleteProject/{id}', [ProjectController::class, 'deleteProject']);
 
 
-Route::get('/project_detail/{id}', [ProjectController::class, 'viewDetailProject']);
+Route::get('/project_image_data/{id}', [ProjectController::class, 'viewImageListProject']);
 
 Route::post('projects_media', [ProjectController::class, 'storeMedia'])->name('projects.storeMedia');
 Route::post('projects/store', [ProjectController::class, 'store'])->name('projects.store');
