@@ -31,6 +31,9 @@
           <li class="nav-item">
             <a class="nav-link page-scroll" href="/#explorasi">Explorasi</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="/#explorasi">Download CV</a>
+          </li>
 
 
         </ul>

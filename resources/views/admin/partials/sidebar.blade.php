@@ -92,8 +92,8 @@
                 <div data-i18n="Analytics">Project</div>
             </a>
         </li>
-        <li class="menu-item {{ (request()->is('project*')) ? 'active' : '' }}">
-            <a href="{{ url('/project') }}" class="menu-link">
+        <li class="menu-item {{ (request()->is('setting*')) ? 'active' : '' }}">
+            <a href="{{ url('/setting') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-cog"></i>
                 <div data-i18n="Analytics">Setting</div>
             </a>
