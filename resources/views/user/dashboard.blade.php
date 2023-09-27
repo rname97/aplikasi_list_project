@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <div id="#header" style="background-image: url('{{ asset('public/bg11.jpg')}}');height: 500px; background-position: center; background-repeat: no-repeat; background-size: 100%;">
+    <div id="home" style="background-image: url('{{ asset('public/bg11.jpg')}}');height: 500px; background-position: center; background-repeat: no-repeat; background-size: 100%; padding-top: 7.75rem;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -13,9 +13,9 @@
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </div>
-    <div class="container" >
-        <div class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;">
-            <div class="col-sm-12">
+    <div  class="container" >
+        <div id="about" class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;">
+            <div  class="col-sm-12">
                 <div class="d-flex justify-content-center" >
                     <h1 style="color: white">About</h1>
                 </div>
@@ -87,7 +87,7 @@
         </div>
 
 
-        <div class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;" >
+        <div id="service" class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;" >
             <div class="col-sm-12">
                 <div class="d-flex justify-content-center">
                     <h1 style="color: white">My Service</h1>
@@ -168,7 +168,7 @@
 
 
 
-    <div class="row " style="padding-top: 7.75rem; padding-bottom: 5.25rem;" >
+    <div id="experience" class="row " style="padding-top: 7.75rem; padding-bottom: 5.25rem;" >
         <div class="col-sm-12">
             <div class="d-flex justify-content-center">
                 <h1 style="color: white">My Experience</h1>
@@ -284,7 +284,7 @@
     </div>
 
 
-    <div class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;" >
+    <div id="activity" class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;" >
         <div class="col-sm-12">
             <div class="d-flex justify-content-center">
                 <h1 style="color: white">Activity</h1>
@@ -396,7 +396,7 @@
 
 
 
-    <div class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;" >
+    <div id="skill" class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;" >
         <div class="col-sm-12">
             <div class="d-flex justify-content-center">
                 <h1 style="color: white">Skill</h1>
@@ -435,7 +435,7 @@
 
 
 
-    <div class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;">
+    <div id="project" class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;">
         <div class="col-sm-12">
             <div class="d-flex justify-content-center">
                 <h1 style="color: white">Project</h1>
@@ -466,7 +466,7 @@
         </div>
     </div>
 
-    <div class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;">
+    <div id="explorasi" class="row" style="padding-top: 7.75rem; padding-bottom: 5.25rem;">
         <div class="col-sm-12">
             <div class="d-flex justify-content-center">
                 <h1 style="color: white">Explorasi</h1>
@@ -497,6 +497,84 @@
         </div>
     </div>
 </div>
+
+<script>
+    (function($) {
+    "use strict";
+
+    /* Navbar Scripts */
+    // jQuery to collapse the navbar on scroll
+    $(window).on('scroll load', function() {
+		if ($(".navbar").offset().top > 60) {
+			$(".fixed-top").addClass("top-nav-collapse");
+		} else {
+			$(".fixed-top").removeClass("top-nav-collapse");
+		}
+    });
+
+	// jQuery for page scrolling feature - requires jQuery Easing plugin
+	$(function() {
+		$(document).on('click', 'a.page-scroll', function(event) {
+			var $anchor = $(this);
+			$('html, body').stop().animate({
+				scrollTop: $($anchor.attr('href')).offset().top
+			}, 600, 'easeInOutExpo');
+			event.preventDefault();
+		});
+    });
+
+    // offcanvas script from Bootstrap + added element to close menu on click in small viewport
+    $('[data-toggle="offcanvas"], .navbar-nav li a:not(.dropdown-toggle').on('click', function () {
+        $('.offcanvas-collapse').toggleClass('open')
+    })
+
+    // hover in desktop mode
+    function toggleDropdown (e) {
+        const _d = $(e.target).closest('.dropdown'),
+            _m = $('.dropdown-menu', _d);
+        setTimeout(function(){
+            const shouldOpen = e.type !== 'click' && _d.is(':hover');
+            _m.toggleClass('show', shouldOpen);
+            _d.toggleClass('show', shouldOpen);
+            $('[data-toggle="dropdown"]', _d).attr('aria-expanded', shouldOpen);
+        }, e.type === 'mouseleave' ? 300 : 0);
+    }
+    $('body')
+    .on('mouseenter mouseleave','.dropdown',toggleDropdown)
+    .on('click', '.dropdown-menu a', toggleDropdown);
+
+
+    /* Move Form Fields Label When User Types */
+    // for input and textarea fields
+    $("input, textarea").keyup(function(){
+		if ($(this).val() != '') {
+			$(this).addClass('notEmpty');
+		} else {
+			$(this).removeClass('notEmpty');
+		}
+	});
+
+
+    /* Back To Top Button */
+    // create the back to top button
+    // $('body').prepend('<a href="body" class="back-to-top page-scroll">Back to Top</a>');
+    // var amountScrolled = 700;
+    // $(window).scroll(function() {
+    //     if ($(window).scrollTop() > amountScrolled) {
+    //         $('a.back-to-top').fadeIn('500');
+    //     } else {
+    //         $('a.back-to-top').fadeOut('500');
+    //     }
+    // });
+
+
+	/* Removes Long Focus On Buttons */
+	$(".button, a, button").mouseup(function() {
+		$(this).blur();
+	});
+
+})(jQuery);
+</script>
 @endsection
 
 
