@@ -16,7 +16,6 @@ class ProjectController extends Controller
         $kategori = Kategori::all();
         $data = ['project' => $project, 'kategori' => $kategori];
         return view('admin.project.project_data', $data);
-        // echo json_encode($data);
     }
 
     public function viewAddProject(){
@@ -157,6 +156,19 @@ class ProjectController extends Controller
         Session::flash('message','Record inserted successfully.');
         return redirect('/project');
 
+    }
+
+    public function deleteImageProject(Request $request){
+        // echo json_encode($request->image);
+        // $project = ProjectImage::find($id);
+        $imageProject = ['project_id' => $request->project_id, 'projectImage' => $request->projectImage];
+        $project = ProjectImage::where($imageProject); 
+        // echo json_encode($project);
+        
+        $project->delete();
+
+        return response()->json(['message' => 'Records deleted successfully']);
+        // return redirect('/project');
     }
 
 }

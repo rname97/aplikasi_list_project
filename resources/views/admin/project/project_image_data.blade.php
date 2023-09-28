@@ -21,7 +21,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">ID Project</label>
                             <div class="col-sm-10">
-                                <input type="text" name="project_id" class="form-control" id="basic-default-name" value="{{ $id }}">
+                                <input type="text" name="project_id" class="form-control" id="project_id" value="{{ $id }}">
                             </div>
                             @if($errors->has('project_id'))
                             <div class="text-danger mt-2">
@@ -47,7 +47,7 @@
                                                                 <div>
                                                                     <img style="height: 80px;width: 90px;"  src="{{url('public/Image/'.$rowProjectImage->projectImage)}}">
                                                                 </div> 
-                                                                    <button>Remove</button>
+                                                                    <button type="button" onclick="removeImage('{{ $rowProjectImage->projectImage }}')">Remove</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -84,11 +84,36 @@
     </div>
 </div>
 
-<script>
 
-
-</script>
 
 @endsection
+
+<script>
+    
+    function removeImage(image){
+        console.log( "document loaded" +image );
+        var projectid = $("#project_id").val();
+        let token   = $("meta[name='csrf-token']").attr("content");
+        console.log(projectid);
+        $.ajax({
+            url: `/project_image_remove`,
+            type: "post",
+            data: {'project_id':projectid, 'projectImage':image} ,
+            headers: {
+                'X-CSRF-Token': '{{ csrf_token() }}',
+            },
+            success: function (response) {
+                console.log(response);
+
+            // You will get response from your PHP page (what you echo or print)
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+            }
+        });
+    }
+</script>
+
+
 
 
