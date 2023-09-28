@@ -107,7 +107,7 @@
                                     </div>
                                         <div class="col-md-10">
                                         <div class="card-body">
-                                            <h5 class="card-title" style="color: white">WEB DEVELOPER</h5>
+                                            <h6 class="card-title" style="color: white">WEB DEVELOPER</h6>
                                         </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                     </div>
                                         <div class="col-md-10">
                                         <div class="card-body">
-                                            <h5 class="card-title" style="color: white">GAME DEVELOPER</h5>
+                                            <h6 class="card-title" style="color: white">GAME DEVELOPER</h6>
                                         </div>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                     </div>
                                         <div class="col-md-10">
                                         <div class="card-body">
-                                            <h5 class="card-title" style="color: white">AR/VR DEVELOPER</h5>
+                                            <h6 class="card-title" style="color: white">AR/VR DEVELOPER</h6>
                                         </div>
                                         </div>
                                     </div>
@@ -154,7 +154,7 @@
                                     </div>
                                         <div class="col-md-10">
                                         <div class="card-body">
-                                            <h5 class="card-title" style="color: white">IOT DEVELOPER</h5>
+                                            <h6 class="card-title" style="color: white">IOT DEVELOPER</h6>
                                         </div>
                                         </div>
                                     </div>

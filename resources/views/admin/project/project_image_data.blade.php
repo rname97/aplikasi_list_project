@@ -32,23 +32,25 @@
 
                     
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Project</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">List Image Project</label>
                             <div class="col-sm-10">
                                 <div class="row" >
                                     <div class="col-sm-12">
-                                        <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4">
+                                        <div class="row row-cols-3 row-cols-lg-4 row-cols-md-3 row-cols-sm-3 g-4">
                                             
                                             @foreach($dataProjectImage as $rowProjectImage)
                                             
                                                 <div class="col">
                                                     <div class=" mb-3">
                                                         <div class="row g-0">
-                                                            <div class="col-12">
-                                                                <div>
-                                                                    <img style="height: 80px;width: 90px;"  src="{{url('public/Image/'.$rowProjectImage->projectImage)}}">
-                                                                </div> 
-                                                                    <button type="button" onclick="removeImage('{{ $rowProjectImage->projectImage }}')">Remove</button>
-                                                            </div>
+                                                            {{-- <div class="col-1"> --}}
+                                                                <div class="card">
+                                                                        <img style="height: 130px; width:auto"  src="{{url('public/Image/'.$rowProjectImage->projectImage)}}" class="img-fluid">
+                                                                   <div class="card-body"> 
+                                                                        <button type="button" class="btn btn-danger btn-sm" onclick="removeImage('{{ $rowProjectImage->projectImage }}')">Remove</button>
+                                                                    </div>
+                                                                </div>
+                                                            {{-- </div> --}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -60,7 +62,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Project</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Image Project</label>
                             <div class="col-sm-10">
                                 <input type="file" name="projectImage[]" class="form-control" id="basic-default-name" multiple>
                             </div>
@@ -73,8 +75,8 @@
 
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-secondary"><i class='bx bxs-left-arrow-alt' ></i> Back</button>
-                                <button type="submit" class="btn btn-primary"><i class='bx bxs-save' ></i> Update</button>
+                                <button type="submit" class="btn btn-secondary btn-sm"><i class='bx bxs-left-arrow-alt' ></i> Back</button>
+                                <button type="submit" class="btn btn-primary btn-sm"><i class='bx bxs-save' ></i> Update</button>
                             </div>
                         </div>
                     </form>

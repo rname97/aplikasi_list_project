@@ -52,5 +52,5 @@ Route::get('/project_image_data/{id}', [ProjectController::class, 'viewImageList
 Route::post('/project_image_remove', [ProjectController::class, 'deleteImageProject'])->name('project_image_remove');
 
 Route::post('projects_media', [ProjectController::class, 'storeMedia'])->name('projects.storeMedia');
-Route::post('projects/store', [ProjectController::class, 'store'])->name('projects.store');
+Route::post('/projects_store', [ProjectController::class, 'store'])->name('projects.store');
 

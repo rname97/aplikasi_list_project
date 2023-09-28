@@ -29,7 +29,7 @@
                                     <td>{{ $rowKategori->kategoriName }}</td>
                                     <td style="text-align: right;">
                                         <div>
-                                            <a href="{{ url('/kategori_edit/'.$rowKategori->id) }}" class="btn btn-sm btn-primary"><i class='bx bxs-edit' ></i>Edit</a>
+                                            <a href="{{ url('/kategori_edit/'.$rowKategori->id) }}" class="btn btn-primary btn-sm"><i class='bx bxs-edit' ></i>Edit</a>
                                             <a href="{{ url('/kategori_delete/'.$rowKategori->id) }}" class="btn btn-sm btn-danger"><i class='bx bxs-trash-alt' ></i>Delete</a>
                                         </div>
                                     </td>

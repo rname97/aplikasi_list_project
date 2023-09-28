@@ -21,7 +21,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Kategori</label>
                             <div class="col-sm-10">
-                                <input type="text" name="kategoriName" class="form-control" id="basic-default-name" placeholder="John Doe">
+                                <input type="text" name="kategoriName" class="form-control" id="basic-default-name" placeholder="">
                             </div>
                             @if($errors->has('kategoriName'))
                             <div class="text-danger mt-2">
@@ -31,8 +31,8 @@
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-secondary"><i class='bx bxs-left-arrow-alt'></i> Back</button>
-                                <button type="submit" class="btn btn-primary"><i class='bx bxs-save'></i>Save</button>
+                                <button type="submit" class="btn btn-secondary btn-sm"><i class='bx bxs-left-arrow-alt'></i> Back</button>
+                                <button type="submit" class="btn btn-primary btn-sm"><i class='bx bxs-save'></i>Save</button>
                             </div>
                         </div>
                     </form>
