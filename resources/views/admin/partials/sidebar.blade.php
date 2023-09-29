@@ -74,6 +74,24 @@
             <div data-i18n="Analytics">Dashboard</div>
         </a>
         </li>
+        <li class="menu-item {{ (request()->is('service*')) ? 'active' : '' }}">
+            <a href="{{ url('/service') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-food-menu"></i>
+                <div data-i18n="Analytics">My Service</div>
+            </a>
+        </li>
+        <li class="menu-item {{ (request()->is('experience*')) ? 'active' : '' }}">
+            <a href="{{ url('/experience') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-food-menu"></i>
+                <div data-i18n="Analytics">My Experience</div>
+            </a>
+        </li>
+        <li class="menu-item {{ (request()->is('activity*')) ? 'active' : '' }}">
+            <a href="{{ url('/activity') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-food-menu"></i>
+                <div data-i18n="Analytics">My Activity</div>
+            </a>
+        </li>
         <li class="menu-item {{ (request()->is('kategori*')) ? 'active' : '' }}">
         <a href="{{ url('/kategori') }}" class="menu-link">
             <i class="menu-icon tf-icons bx bxs-category"></i>
@@ -90,6 +108,12 @@
             <a href="{{ url('/project') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-food-menu"></i>
                 <div data-i18n="Analytics">Project</div>
+            </a>
+        </li>
+        <li class="menu-item {{ (request()->is('explorasi*')) ? 'active' : '' }}">
+            <a href="{{ url('/explorasi') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-food-menu"></i>
+                <div data-i18n="Analytics">Explorasi</div>
             </a>
         </li>
         <li class="menu-item {{ (request()->is('setting*')) ? 'active' : '' }}">

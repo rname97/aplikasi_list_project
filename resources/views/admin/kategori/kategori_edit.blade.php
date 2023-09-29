@@ -16,7 +16,7 @@
                              {{ Session::get('message') }}
                         </div>
                     @endif
-                    <form action="{{url('/updateKategori')}}/{{$rowKategori->id}}" method="post"">
+                    <form action="{{url('/updateKategori')}}/{{$rowKategori->id}}" method="post">
                         @csrf
 
                         <div class="row mb-3">

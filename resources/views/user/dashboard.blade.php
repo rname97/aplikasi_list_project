@@ -97,74 +97,35 @@
                 </div>
                 <div class="row" >
                     <div class="col-sm-12">
-                        <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4">
+                        <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4 d-flex justify-content-center">
+
+
+                            @foreach ($service as $rowService)
                             <div class="col">
                                 <div class="card mb-3 shadow-sm" style="max-width: 540px; background-color: #17213D">
                                     <div class="row g-0">
                                         <div class="col-md-2">
-                                        <i class='bx bx-code-alt bx-lg' style="color: #0EA5E9"></i>
+                                        <i class='{{$rowService->serviceIcon}}' style="color: #0EA5E9"></i>
 
                                     </div>
                                         <div class="col-md-10">
                                         <div class="card-body">
-                                            <h6 class="card-title" style="color: white">WEB DEVELOPER</h6>
+                                            <h6 class="card-title" style="color: white">{{$rowService->serviceName}}</h6>
                                         </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
 
-                            <div class="col">
-                                <div class="card mb-3 shadow-sm" style="max-width: 540px; background-color: #17213D">
-                                    <div class="row g-0">
-                                        <div class="col-md-2">
-                                        <i class='bx bx-joystick bx-lg' style="color: #0EA5E9"></i>
-                                    </div>
-                                        <div class="col-md-10">
-                                        <div class="card-body">
-                                            <h6 class="card-title" style="color: white">GAME DEVELOPER</h6>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card mb-3 shadow-sm" style="max-width: 540px; background-color: #17213D">
-                                    <div class="row g-0">
-                                        <div class="col-md-2">
-                                        <i class='bx bx-mask bx-lg' style="color: #0EA5E9"></i>
-
-                                    </div>
-                                        <div class="col-md-10">
-                                        <div class="card-body">
-                                            <h6 class="card-title" style="color: white">AR/VR DEVELOPER</h6>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card mb-3 shadow-sm" style="max-width: 540px; background-color: #17213D">
-                                    <div class="row g-0">
-                                        <div class="col-md-2">
-                                        <i class='bx bx-sitemap bx-lg' style="color: #0EA5E9"></i>
-
-                                    </div>
-                                        <div class="col-md-10">
-                                        <div class="card-body">
-                                            <h6 class="card-title" style="color: white">IOT DEVELOPER</h6>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
 
 
 
@@ -178,6 +139,12 @@
             </div>
             <div class="row" >
                 <div class="col-sm-12 col-md-12">
+
+
+                    @foreach ($experience as $rowExperience)
+
+
+
                     <div class="row d-flex justify-content-center">
                         <div class="col-sm-8 col-md-8 col-lg-6">
                             <div class="card mb-3 shadow-sm" style="max-width: 100%; background-color: #17213D">
@@ -189,95 +156,23 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card-body">
-                                            <h5 class="card-title" style="color: white">ITDA Yogyakarta</h5>
-                                            <p>Asisten Dosen</p>
+                                            <h5 class="card-title" style="color: white">{{ $rowExperience->experienceCompany }}</h5>
+                                            <p>{{ $rowExperience->experienceName }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card-body">
-                                            <p> 2016 Des</p>
-                                            <p> 2017 Des</p>
+                                            <p>{{ $rowExperience->experienceStart }}</p>
+                                            <p>{{ $rowExperience->experienceEnd }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-sm-8 col-md-8 col-lg-6">
-                            <div class="card mb-3 shadow-sm" style="max-width: 100%; background-color: #17213D">
-                                <div class="row g-0">
-                                    <div class="col-md-2">
-                                        <div class="card-body">
-                                            <i class='bx bxs-building bx-lg' style="color: #0EA5E9"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card-body">
-                                            <h5 class="card-title" style="color: white">Freelance</h5>
-                                            <p>Full Stack Developer</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card-body">
-                                            <p> 2018 Feb</p>
-                                            <p> Present</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-sm-8 col-md-8 col-lg-6">
-                            <div class="card mb-3 shadow-sm" style="max-width: 100%; background-color: #17213D">
-                                <div class="row g-0">
-                                    <div class="col-md-2">
-                                        <div class="card-body">
-                                            <i class='bx bxs-building bx-lg' style="color: #0EA5E9"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card-body">
-                                            <h5 class="card-title" style="color: white">PT Infosys Solusi Terpadu</h5>
-                                            <p>Back End Developer</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card-body">
-                                            <p> 2021 Des</p>
-                                            <p> 2022 Des</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="ccol-sm-8 col-md-8 col-lg-6">
-                            <div class="card mb-3 shadow-sm" style="max-width: 100%; background-color: #17213D">
-                                <div class="row g-0">
-                                    <div class="col-md-2">
-                                        <div class="card-body">
-                                            <i class='bx bxs-building bx-lg' style="color: #0EA5E9"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card-body">
-                                            <h5 class="card-title" style="color: white">PT Wings Group</h5>
-                                            <p>Software Enginering <br>Full Stack Developer</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card-body">
-                                            <p> 2022 Jan</p>
-                                            <p> Present</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -475,15 +370,15 @@
                 <hr style="width: 20%; height:5px; color: #0EA5E9">
             </div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 d-flex justify-content-center">
-                @foreach ($project as $rowProject)
+                @foreach ($explorasi as $rowExplorasi)
                     <div class="col">
                         <div class="card mb-5 shadow-sm" style="background-color: #17213D">
 
-                            <img src="{{url('public/Image/'.$rowProject->projectImageCover)}}" class="img-fluid" alt="..." >
+                            <img src="{{url('public/Image/'.$rowExplorasi->explorasiImageCover)}}" class="img-fluid" alt="..." >
 
 
                             <div class="card-body text-center">
-                            <h6 class="card-title">{{$rowProject->projectName}}</h6>
+                            <h6 class="card-title">{{$rowExplorasi->explorasiName}}</h6>
                             <a href="#" class="btn btn-primary">View</a>
                             {{-- <p class="card-text">{{$rowProject->projectDeskripsi}}</p> --}}
                             </div>
